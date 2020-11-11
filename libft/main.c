@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int		main(int argc, char **argv)
 {
@@ -15,8 +16,6 @@ int		main(int argc, char **argv)
 	// }
 
 	int itoa_test = atoi(argv[1]);
-	char str[20];
 	printf("mine: %s\n", ft_itoa(itoa_test));
-	printf("orig: %s\n", itoa(itoa_test, str, 10));
 	return (1);
 }
