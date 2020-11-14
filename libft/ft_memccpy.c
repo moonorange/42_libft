@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 13:34:02 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/08 17:27:41 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/14 20:52:02 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	{
 		udest[idx] = usrc[idx];
 		if (usrc[idx] == uc)
-			return (&udest[idx++]);
+			return (&udest[idx + 1]);
 		idx++;
 	}
 	return (NULL);
