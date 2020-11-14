@@ -4,18 +4,76 @@
 #include <string.h>
 #include <unistd.h>
 
+void	print_split(char **split)
+{
+	int i = 0;
+
+	if (!split)
+	{
+		printf("(null)\n");
+		return ;
+	}
+	if (!*split)
+	{
+		printf("[%s]\n", *split);
+		free(split);
+		return ;
+	}
+	printf("[");
+	for (i = 0; split[i]; i++)
+	{
+		printf("\"%s\", ", split[i]);
+		free(split[i]);
+	}
+	printf("%s", split[i]);
+	printf("]\n");
+	free(split[i]);
+	free(split);
+}
+
 int		main(int argc, char **argv)
 {
-	argc = 0;
-	// char **ans = ft_split(argv[1], argv[2]);
-	// int idx = 0;
-	// while (ans[idx])
-	// {
-	// 	printf("%s\n", ans[idx]);
-	// 	idx++;
-	// }
+	if (argc == 1)
+	{
+		printf("----------------------------------------\n");
+		printf(" char **ft_split(const char *s, char c)\n");
+		printf("----------------------------------------\n");
+		printf("usage [auto]:\n");
+		printf("1. a --run\n");
+		printf("usage [manual]:\n");
+		printf("1. a <string s> <char c>\n");
+		return (42);
+	}
+	else if (!strcmp(argv[1], "--run"))
+	{
+		printf("----------------------------------------\n");
+		printf(" char **ft_split(const char *s, char c)\n");
+		printf("----------------------------------------\n");
+		printf("1. ft_split(\"abababa\", '\\0')\n");
+		char **s = ft_split("abababa", '\0');
+		print_split(s);
+		printf("2. ft_split(\"\", '\\0')\n");
+		s = ft_split("", '\0');
+		print_split(s);
+		printf("3. ft_split(\"\", 'x')\n");
+		s = ft_split("", 'x');
+		print_split(s);
+		printf("4. ft_split(\"aaaaaaaa\", 'a')\n");
+		s = ft_split("aaaaaaaa", 'a');
+		print_split(s);
+		printf("5. ft_split(NULL, '\\0')\n");
+		s = ft_split(NULL, '\0');
+		print_split(s);
+		printf("6. ft_split(\"axbxc\", 'x')\n");
+		s = ft_split("axbxc", 'x');
+		print_split(s);
+	}
+	else
+	{
+		char *str = argv[1];
+		char c = argv[2][0];
+		char **split = ft_split(str, c);
 
-	int itoa_test = atoi(argv[1]);
-	printf("mine: %s\n", ft_itoa(itoa_test));
-	return (1);
+		print_split(split);
+	}
 }
