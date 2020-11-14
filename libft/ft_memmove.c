@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 13:33:55 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/14 22:04:44 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/14 22:39:17 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	idx = 0;
 	udst = (unsigned char *)dst;
 	usrc = (unsigned char *)src;
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	if (usrc < udst)
 		while ((int)(--len) >= 0)
 		{
-			udst[len] = usrc[len]
+			udst[len] = usrc[len];
 		}
 	else
 		while (idx < len)
