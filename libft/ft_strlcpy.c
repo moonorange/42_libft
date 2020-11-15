@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 13:33:40 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/14 22:42:56 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/14 23:12:42 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	size_t	len;
 
 	i = 0;
-	if (dest == NULL && src == NULL)
+	if (dest == NULL || src == NULL)
 		return (0);
 	if (dstsize != 0)
 	{

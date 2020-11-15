@@ -1,79 +1,40 @@
-#include "libft_code/libft.h"
+#include "libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-void	print_split(char **split)
+int main(void)
 {
-	int i = 0;
+	printf("[case 1]\n");
+	char src1[] = "abcdef";
+	char dst1[] = "12345678";
+	char dst2[] = "12345678";
+	size_t rt1;
+	size_t rt2;
 
-	if (!split)
-	{
-		printf("(null)\n");
-		return ;
-	}
-	if (!*split)
-	{
-		printf("[%s]\n", *split);
-		free(split);
-		return ;
-	}
-	printf("[");
-	for (i = 0; split[i]; i++)
-	{
-		printf("\"%s\", ", split[i]);
-		free(split[i]);
-	}
-	printf("%s", split[i]);
-	printf("]\n");
-	free(split[i]);
-	free(split);
-}
+	rt1 = strlcpy(dst1, src1, 5);
+	printf("	strlcpy		:%s,		return	:%zu\n", dst1, rt1);
 
-int		main(int argc, char **argv)
-{
-	if (argc == 1)
-	{
-		printf("----------------------------------------\n");
-		printf(" char **ft_split(const char *s, char c)\n");
-		printf("----------------------------------------\n");
-		printf("usage [auto]:\n");
-		printf("1. a --run\n");
-		printf("usage [manual]:\n");
-		printf("1. a <string s> <char c>\n");
-		return (42);
-	}
-	else if (!strcmp(argv[1], "--run"))
-	{
-		printf("----------------------------------------\n");
-		printf(" char **ft_split(const char *s, char c)\n");
-		printf("----------------------------------------\n");
-		printf("1. ft_split(\"abababa\", '\\0')\n");
-		char **s = ft_split("abababa", '\0');
-		print_split(s);
-		printf("2. ft_split(\"\", '\\0')\n");
-		s = ft_split("", '\0');
-		print_split(s);
-		printf("3. ft_split(\"\", 'x')\n");
-		s = ft_split("", 'x');
-		print_split(s);
-		printf("4. ft_split(\"aaaaaaaa\", 'a')\n");
-		s = ft_split("aaaaaaaa", 'a');
-		print_split(s);
-		printf("5. ft_split(NULL, '\\0')\n");
-		s = ft_split(NULL, '\0');
-		print_split(s);
-		printf("6. ft_split(\"axbxc\", 'x')\n");
-		s = ft_split("axbxc", 'x');
-		print_split(s);
-	}
-	else
-	{
-		char *str = argv[1];
-		char c = argv[2][0];
-		char **split = ft_split(str, c);
+	rt2 = ft_strlcpy(dst2, src1, 5);
+	printf("	ft_strlcpy	:%s,		return	:%zu\n", dst2, rt2);
 
-		print_split(split);
-	}
+	//////////////////////////////////////////////////////////
+	printf("[case 2]\n");
+	char src2[] = "abcdef";
+	char dst3[] = "12345678";
+	char dst4[] = "12345678";
+	size_t rt3;
+	size_t rt4;
+
+	rt3 = strlcpy(dst3, src2, 9);
+	printf("	strlcpy		:%s,	return	:%zu\n", dst3, rt3);
+
+	rt4 = ft_strlcpy(dst4, src2, 9);
+	printf("	ft_strlcpy	:%s,	return	:%zu\n", dst4, rt4);
+
+	printf("%zu\n,", ft_strlcpy(dst4, NULL, 9));
+	printf("%zu\n,", strlcpy(dst4, NULL, 9));
+
+	return (0);
 }
