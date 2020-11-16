@@ -6,13 +6,14 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 20:33:32 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/15 18:15:57 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/16 20:48:08 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		make_array(const char *str, char **strs_array, int str_len, int idx)
+static void		make_array(const char *str, char **strs_array, int str_len,
+int idx)
 {
 	int str_i;
 
@@ -81,7 +82,7 @@ static int		count_sep_num(const char *str, char c)
 	return (sep_num);
 }
 
-char 		**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	int		sep_num;
 	char	**strs_array;
