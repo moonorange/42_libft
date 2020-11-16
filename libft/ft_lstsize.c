@@ -6,8 +6,15 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 13:23:18 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/15 13:35:51 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/15 19:39:27 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int		ft_lstsize(t_list *lst)
+{
+	if (lst)
+		return (1 + ft_lstsize(lst->next));
+	return (0);
+}
