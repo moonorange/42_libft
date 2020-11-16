@@ -6,8 +6,13 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 13:23:15 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/16 20:36:28 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/16 22:47:07 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	
+}

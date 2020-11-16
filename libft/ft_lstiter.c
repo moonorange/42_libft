@@ -6,8 +6,16 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 13:23:09 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/16 21:22:06 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/16 22:57:56 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	if (!lst || !f)
+		return ;
+	ft_lstiter(lst->next, f);
+	f(lst->content);
+}
