@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   test_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktakami <ktakami@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/09 23:50:05 by mukobaray        ###   ########.jp       */
+/*   Updated: 2020/11/17 21:51:40 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 void	assert(unsigned long expected, unsigned long actual)
 {
@@ -763,8 +763,10 @@ void	test_strrchr(const char *s, int c)
 
 	if(res_lib == res_my) {
 		printf("[ok]: expect: %p, actual: %p\n", res_lib, res_my);
+		printf("[ok]: expect: %s, actual: %s\n", res_lib, res_my);
 	} else {
 		printf("[ng!!!!!!]: expect: %p, actual: %p\n", res_lib, res_my);
+		printf("[ng!!!!!!]: expect: %s, actual: %s\n", res_lib, res_my);
 		exit(1);
 	}
 }
@@ -1752,7 +1754,7 @@ void	test_lstiter_case()
 int		main(void)
 {
 	for(int i = 0; i < 100; i++) {
-		
+
 		test_strlen_case();
 		test_memset_case();
 		test_bzero_case();
@@ -1771,11 +1773,11 @@ int		main(void)
 		test_ascii_case();
 		test_calloc_case();
 		test_strdup_case();
-		
+
 		test_substr_case();
 		test_strjoin_case();
 		test_strtrim_case();
-		
+
 		test_ft_split_case();
 		test_itoa_case();
 		test_ft_strmapi_case();

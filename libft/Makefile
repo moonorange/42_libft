@@ -6,7 +6,7 @@
 #    By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/14 13:19:19 by kkida             #+#    #+#              #
-#    Updated: 2020/11/14 17:25:40 by kkida            ###   ########.fr        #
+#    Updated: 2020/11/17 21:37:46 by kkida            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,11 +71,12 @@ ${NAME}: ${OBJS}
 	$(AR) $(NAME) $(OBJS)
 
 all: ${NAME}
+
 bonus: ${OBJS} ${BONUS_OBJS}
 		${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
 
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${BONUS_OBJS}
 
 fclean:	clean
 	rm -f ${NAME}

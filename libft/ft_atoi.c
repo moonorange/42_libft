@@ -6,18 +6,22 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:52:10 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/15 15:36:39 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/18 19:31:45 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 int		ft_atoi(const char *str)
 {
-	int	ans;
-	int	sign;
+	long long int	ans;
+	int				sign;
+	long int		digit;
+	long long int	ov_flow;
 
 	sign = 1;
+	digit = 0;
 	if (!*str)
 		return (0);
 	while (ft_isspace(*str))
@@ -31,9 +35,12 @@ int		ft_atoi(const char *str)
 	ans = 0;
 	while (ft_isdigit(*str))
 	{
-		ans *= 10;
-		ans += *str - '0';
-		str++;
+		digit++;
+		ov_flow = ans * 10 + (*str - '0');
+		if (ov_flow < ans)
+			return ((sign + 1) / (-2));
+		else
+			ans = ov_flow;
 	}
-	return (ans * sign);
+	return (int)(ans * sign);
 }
