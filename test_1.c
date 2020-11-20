@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/20 20:11:56 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/20 22:32:10 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1218,7 +1218,7 @@ void	test_strtrim_case()
 	test_strtrim("abcdefghijkabcdefghijkabc", "abc", "defghijkabcdefghijk");
 	test_strtrim("", "", "");
 	test_strtrim("abc", "abc", "");
-	// test_strtrim("abc", "abcded", "abc");
+	test_strtrim("abc", "abcded", "");
 	test_strtrim("abc", "a", "bc");
 	test_strtrim("abc", "b", "abc");
 	test_strtrim("abc", "c", "ab");
@@ -1759,27 +1759,27 @@ int		main(void)
 {
 	for(int i = 0; i < 100; i++) {
 
-		// test_strlen_case();
-		// test_memset_case();
-		// test_bzero_case();
-		// test_memcpy_case();
-		// test_memccpy_case();
-		// test_memmove_case();
-		// test_memchr_case();
-		// test_memcmp_case();
-		// test_ft_strlcpy_case();
-		// test_strlcat_case();
-		// test_strchr_case();
-		// test_strrchr_case();
-		// test_strncmp_case();
-		// test_strnstr_case();
-		// test_atoi_case();
-		// test_ascii_case();
-		// test_calloc_case();
-		// test_strdup_case();
+		test_strlen_case();
+		test_memset_case();
+		test_bzero_case();
+		test_memcpy_case();
+		test_memccpy_case();
+		test_memmove_case();
+		test_memchr_case();
+		test_memcmp_case();
+		test_ft_strlcpy_case();
+		test_strlcat_case();
+		test_strchr_case();
+		test_strrchr_case();
+		test_strncmp_case();
+		test_strnstr_case();
+		test_atoi_case();
+		test_ascii_case();
+		test_calloc_case();
+		test_strdup_case();
 
-		// test_substr_case();
-		// test_strjoin_case();
+		test_substr_case();
+		test_strjoin_case();
 		test_strtrim_case();
 
 		test_ft_split_case();
@@ -1789,6 +1789,13 @@ int		main(void)
 		test_ft_putstr_fd();
 		test_ft_putendl_fd();
 		test_ft_putnbr_fd();
+		test_ft_strmapi_case();
+		test_addfront_case();
+		test_lstsize_case();
+		test_lstlast_case();
+		test_lstdelone_case();
+		test_lstmap_case();
+		test_lstiter_case();
 	}
 	return (0);
 }
