@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 13:23:15 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/17 20:32:22 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/20 22:13:52 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-	t_list	*ret;
-	t_list	*tmp;
+	t_list	*list;
+	t_list	*list_top;
 
-	if (!lst || !f)
+	if (!lst || !(*f))
 		return (lst);
-	if (!(ret = ft_lstnew(f(lst->content))))
+	if (!(list = ft_lstnew((*f)(lst->content))))
 		return (NULL);
-	lst = lst->next;
-	tmp = ret;
-	while (lst)
+	list_top = list;
+	while (lst->next)
 	{
-		if (!(tmp->next = ft_lstnew(f(lst->content))))
+		lst = lst->next;
+		if (!(list->next = ft_lstnew((*f)(lst->content))))
 		{
-			ft_lstclear(&ret, del);
+			ft_lstclear(&list_top, del);
 			return (NULL);
 		}
-		tmp = tmp->next;
-		lst = lst->next;
+		list = list->next;
 	}
-	return (ret);
+	return (list_top);
 }

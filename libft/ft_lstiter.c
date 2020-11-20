@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 13:23:09 by kkida             #+#    #+#             */
-/*   Updated: 2020/11/16 22:57:56 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/20 22:18:40 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!lst || !(*f))
 		return ;
-	ft_lstiter(lst->next, f);
-	f(lst->content);
+	ft_lstiter(lst->next, (*f));
+	(*f)(lst->content);
 }
