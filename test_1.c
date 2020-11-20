@@ -6,7 +6,7 @@
 /*   By: kkida <kkida@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 18:56:30 by ktakami           #+#    #+#             */
-/*   Updated: 2020/11/17 21:51:40 by kkida            ###   ########.fr       */
+/*   Updated: 2020/11/20 19:34:53 by kkida            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1174,8 +1174,8 @@ void	test_strjoin_case()
 	test_strjoin("abc", "def", "abcdef");
 	test_strjoin("ab", "cdef", "abcdef");
 	test_strjoin("abcd", "ef", "abcdef");
-	//test_strjoin("abcd", NULL, "abcd");
-	//test_strjoin(NULL, "abcd", "abcd");
+	// test_strjoin("abcd", NULL, "abcd");
+	// test_strjoin(NULL, "abcd", "abcd");
 }
 
 void	test_strtrim(char const *s1, char const *set, char *result)
@@ -1215,7 +1215,8 @@ void	test_strtrim_case()
 	test_strtrim("abcdefghijkabcdefghijkabc", "abc", "defghijkabcdefghijk");
 	test_strtrim("", "", "");
 	test_strtrim("abc", "abc", "");
-	//test_strtrim("abc", "abcded", "abc");
+	printf("Here I am\n");
+	test_strtrim("abc", "abcded", "abc");
 	test_strtrim("abc", "a", "bc");
 	test_strtrim("abc", "b", "abc");
 	test_strtrim("abc", "c", "ab");
@@ -1230,7 +1231,7 @@ void	test_strtrim_case()
 	test_strtrim("abcdef", "abcde", "f");
 	test_strtrim("abcdef", "abdef", "c");
 	test_strtrim("", "abdef", "");
-	//test_strtrim("", NULL, "");
+	test_strtrim("", NULL, "");
 	test_strtrim("abc", NULL, "abc");
 	test_strtrim(",abc,,,abc,bc", ",a", "bc,,,abc,bc");
 	test_strtrim("\0abc,,,abc,bc\0", "\0", "");
